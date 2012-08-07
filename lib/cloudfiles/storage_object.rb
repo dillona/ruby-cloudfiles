@@ -403,6 +403,12 @@ module CloudFiles
       CloudFiles.escape name
     end
 
+    def delete
+      self.container.delete_object(self.name)
+      self.freeze
+      true
+    end
+
     private
 
       def cdn_available?
